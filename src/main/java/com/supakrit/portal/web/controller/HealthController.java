@@ -41,11 +41,11 @@ public class HealthController {
 			URL url = new URL("https://covid19.th-stat.com/json/covid19v2/getTodayCases.json");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");
-			connection.setRequestProperty("Content-Type", "application/json; utf-8");
+			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			Map<String, List<String>> m = connection.getHeaderFields();
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.defaultCharset()));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";
 				StringBuilder responseStrBuilder = new StringBuilder();
 				while((line = br.readLine()) != null) {
@@ -78,11 +78,11 @@ public class HealthController {
 			URL url = new URL("https://covid19.th-stat.com/json/covid19v2/getTimeline.json");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");
-			connection.setRequestProperty("Content-Type", "application/json; utf-8");	
+			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");	
 			Map<String, List<String>> m = connection.getHeaderFields();
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.defaultCharset()));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";
 				StringBuilder responseStrBuilder = new StringBuilder();
 				while((line = br.readLine()) != null) {
@@ -120,11 +120,11 @@ public class HealthController {
 			URL url = new URL("https://covid19.th-stat.com/json/covid19v2/getSumCases.json");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");
-			connection.setRequestProperty("Content-Type", "application/json; utf-8");
+			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			Map<String, List<String>> m = connection.getHeaderFields();
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";
 				StringBuilder responseStrBuilder = new StringBuilder();
 				while((line = br.readLine()) != null) {
